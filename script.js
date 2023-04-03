@@ -13,11 +13,11 @@ function sendEmail() {
     SecureToken: "52c4c2f0-b304-4d5a-8827-aad156837dde",
     To: "meyol2001@gmail.com",
     From: "mko2001@op.pl",
-    Subject: "This is the subject",
+    Subject: document.getElementById("subject").value,
     Body:
-      "Name: " +
+      "Imię: " +
       document.getElementById("name").value +
-      "<br> Email: " +
+      "<br> E-Mail: " +
       document.getElementById("email").value +
       "<br> Wiadomość: " +
       document.getElementById("message").value,
