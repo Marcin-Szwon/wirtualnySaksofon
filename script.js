@@ -23,6 +23,7 @@ function sendEmail() {
       document.getElementById("message").value,
   }).then((message) => alert("Wiadomość została wysłana pomyślnie"));
 }
+
 let calcScrollValue = () => {
   let scrollProgress = document.getElementById("progress");
   let progressValue = document.getElementById("progress-value");
@@ -39,7 +40,8 @@ let calcScrollValue = () => {
   scrollProgress.addEventListener("click", () => {
     document.documentElement.scrollTop = 0;
   });
-  scrollProgress.style.background = `conic-gradient (#03cc65 ${scrollValue}%, #d7d7d7 ${scrollValue}%)`;
+  scrollProgress.style.background = `conic-gradient(#03cc65 ${scrollValue}%, transparent ${scrollValue}%)`;
 };
+
 window.onscroll = calcScrollValue;
 window.onload = calcScrollValue;
