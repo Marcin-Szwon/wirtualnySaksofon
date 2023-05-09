@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="desciption"
+      content="Tworzymy aplikację webową dla użytkowników zainteresowanych symulatorem saksofonu. To tutaj zagrasz swoje ulubione utwory i my Tobie w tym pomożemy."
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -31,24 +35,28 @@
       <div class="navbar">
         <div class="logo">
           <a href="index.html">
-            <img src="images/logo (1).webp" />
+            <img src="images/logo.webp" loading="lazy" alt="logo" />
             <h3>Wirtualny Saksofon</h3>
           </a>
         </div>
         <ul class="links">
-          <li><a href="#offer">Co oferujemy?</a></li>
-          <!-- <li><a href="#">Porady</a></li> -->
-          <a href="#play" class="action_btn">Graj</a>
-          <li><a href="#contact">Kontakt</a></li>
+          <li><a class="headlights" href="#offer">Co oferujemy?</a></li>
+          <li><a href="#play" class="action_btn">Graj</a></li>
+          <li><a class="headlights" href="#contact">Kontakt</a></li>
         </ul>
         <div class="toggle_btn">
           <i class="fa-solid fa-bars"></i>
         </div>
       </div>
       <div class="dropdown_menu">
-        <li><a href="#offer">Co oferujemy?</a></li>
+        <ul>
+          <li><a class="headlights" href="#offer">Co oferujemy?</a></li>
+          <li><a href="#play" class="action_btn">Graj</a></li>
+          <li><a class="headlights" href="#contact">Kontakt</a></li>
+        </ul>
+        <!-- <li><a class="headlights" href="#offer">Co oferujemy?</a></li>
         <li><a href="#play" class="action_btn">Graj</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        <li><a class="headlights" href="#contact">Kontakt</a></li> -->
       </div>
     </header>
 
@@ -78,7 +86,7 @@
     </main>
 
     <section id="offer">
-      <h1>Czego możesz się nauczyć</h1>
+      <h2>Czego możesz się nauczyć</h2>
       <p>
         Symulator saksofonu, który pomoże osobom zaczynającym przygodę z tym
         instrumentem zagrać poszczególne dźwięki, chwycić je na prawdziwym
@@ -114,12 +122,13 @@
     </section>
 
     <section id="play">
-      <h1>Wybierz instrument i graj</h1>
+      <h2>Wybierz instrument i graj</h2>
       <p>Wybierz spośród 3 instrumnetów, na którym chcesz zagrać.</p>
 
       <div class="row">
         <div class="play-col">
-          <img src="Grafika/alto-sax.png" alt="" />
+          <img src="images/alto-sax.webp" alt="Alto Saxophone" loading="lazy" />
+
           <div class="layer frame">
             <h3>
               Saksofon Altowy
@@ -128,7 +137,12 @@
           </div>
         </div>
         <div class="play-col">
-          <img src="Grafika/tenor-sax.png" alt="" />
+          <img
+            src="images/tenor-sax.webp"
+            alt="Tenor Saxophone"
+            loading="lazy"
+          />
+
           <div class="layer not-available">
             <h3>
               Saksofon Tenorowy
@@ -137,7 +151,12 @@
           </div>
         </div>
         <div class="play-col">
-          <img src="Grafika/baryton-sax.png" alt="" />
+          <img
+            src="images/baryton-sax.webp"
+            alt="Baryton Saxophone"
+            loading="lazy"
+          />
+
           <div class="layer not-available">
             <h3>
               Saksofon Barytonowy
@@ -150,7 +169,7 @@
 
     <section id="contact">
       <div class="contact-form">
-        <h1>Skontaktuj się z nami</h1>
+        <h2>Skontaktuj się z nami</h2>
         <p>
           Masz pytanie albo chcesz pomóc udoskonalić naszą stronę? Napisz do nas
           w formularzu zgłoszeniowym, a my odpiszemy na podany adres e-mail.
@@ -189,14 +208,14 @@
           grając na naszej stronie.
         </p>
         <ul class="footer-links">
-          <li><a href="#offer">Oferta</a></li>
-          <li><a href="#play">Graj</a></li>
-          <li><a href="#contact">Kontakt</a></li>
+          <li><a class="headlights" href="#offer">Oferta</a></li>
+          <li><a class="headlights" href="#play">Graj</a></li>
+          <li><a class="headlights" href="#contact">Kontakt</a></li>
         </ul>
       </div>
     </footer>
 
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script src="script.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js" defer></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
