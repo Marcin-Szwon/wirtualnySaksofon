@@ -21,7 +21,7 @@ function changeColor(btn) {
   counter++;
 }
 
-let audio = new Audio("sound/C4.mp4");
+let audio = new Audio("sound/C4.mp3");
 let front = document.getElementById("frontSax");
 let back = document.getElementById("backSax");
 
@@ -64,25 +64,25 @@ let F6 = document.getElementById("F6");
 // A3-H3
 
 A3Sharp.addEventListener("click", function () {
-  playMusic("A3SHARP.mp4", "A3SHARP_FRONT.png", "PUSTY_BACK.png");
+  playMusic("A3SHARP.mp3", "A3SHARP_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "t" || event.key === "T") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("A3SHARP.mp4", "A3SHARP_FRONT.png", "PUSTY_BACK.png");
+    playMusic("A3SHARP.mp3", "A3SHARP_FRONT.png", "PUSTY_BACK.png");
     changeColor(A3Sharp);
   }
 });
 
 H3.addEventListener("click", function () {
-  playMusic("H3.mp4", "H3_FRONT.png", "PUSTY_BACK.png");
+  playMusic("H3.mp3", "H3_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "y" || event.key === "Y") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("H3.mp4", "H3_FRONT.png", "PUSTY_BACK.png");
+    playMusic("H3.mp3", "H3_FRONT.png", "PUSTY_BACK.png");
     changeColor(H3);
   }
 });
@@ -90,145 +90,145 @@ document.addEventListener("keydown", function (event) {
 // C4-H4
 
 C4.addEventListener("click", function () {
-  playMusic("C4.mp4", "C4_FRONT.png", "PUSTY_BACK.png");
+  playMusic("C4.mp3", "C4_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "z" || event.key === "Z") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("C4.mp4", "C4_FRONT.png", "PUSTY_BACK.png");
+    playMusic("C4.mp3", "C4_FRONT.png", "PUSTY_BACK.png");
     changeColor(C4);
   }
 });
 
 C4Sharp.addEventListener("click", function () {
-  playMusic("C4SHARP.mp4", "C4SHARP_FRONT.png", "PUSTY_BACK.png");
+  playMusic("C4SHARP.mp3", "C4SHARP_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "a" || event.key === "A") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("C4SHARP.mp4", "C4SHARP_FRONT.png", "PUSTY_BACK.png");
+    playMusic("C4SHARP.mp3", "C4SHARP_FRONT.png", "PUSTY_BACK.png");
     changeColor(C4Sharp);
   }
 });
 
 D4.addEventListener("click", function () {
-  playMusic("D4.mp4", "D4_FRONT.png", "PUSTY_BACK.png");
+  playMusic("D4.mp3", "D4_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "q" || event.key === "Q") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("D4.mp4", "D4_FRONT.png", "PUSTY_BACK.png");
+    playMusic("D4.mp3", "D4_FRONT.png", "PUSTY_BACK.png");
     changeColor(D4);
   }
 });
 
 D4Sharp.addEventListener("click", function () {
-  playMusic("D4SHARP.mp4", "D4SHARP_FRONT.png", "PUSTY_BACK.png");
+  playMusic("D4SHARP.mp3", "D4SHARP_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "w" || event.key === "W") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("D4SHARP.mp4", "D4SHARP_FRONT.png", "PUSTY_BACK.png");
+    playMusic("D4SHARP.mp3", "D4SHARP_FRONT.png", "PUSTY_BACK.png");
     changeColor(D4Sharp);
   }
 });
 
 E4.addEventListener("click", function () {
-  playMusic("E4.mp4", "E4_FRONT.png", "PUSTY_BACK.png");
+  playMusic("E4.mp3", "E4_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "s" || event.key === "S") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("E4.mp4", "E4_FRONT.png", "PUSTY_BACK.png");
+    playMusic("E4.mp3", "E4_FRONT.png", "PUSTY_BACK.png");
     changeColor(E4);
   }
 });
 
 F4.addEventListener("click", function () {
-  playMusic("F4.mp4", "F4_FRONT.png", "PUSTY_BACK.png");
+  playMusic("F4.mp3", "F4_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "x" || event.key === "X") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("F4.mp4", "F4_FRONT.png", "PUSTY_BACK.png");
+    playMusic("F4.mp3", "F4_FRONT.png", "PUSTY_BACK.png");
     changeColor(F4);
   }
 });
 
 F4Sharp.addEventListener("click", function () {
-  playMusic("F4SHARP.mp4", "F4SHARP_FRONT.png", "PUSTY_BACK.png");
+  playMusic("F4SHARP.mp3", "F4SHARP_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "c" || event.key === "C") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("F4SHARP.mp4", "F4SHARP_FRONT.png", "PUSTY_BACK.png");
+    playMusic("F4SHARP.mp3", "F4SHARP_FRONT.png", "PUSTY_BACK.png");
     changeColor(F4Sharp);
   }
 });
 
 G4.addEventListener("click", function () {
-  playMusic("G4.mp4", "G4_FRONT.png", "PUSTY_BACK.png");
+  playMusic("G4.mp3", "G4_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "d" || event.key === "D") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("G4.mp4", "G4_FRONT.png", "PUSTY_BACK.png");
+    playMusic("G4.mp3", "G4_FRONT.png", "PUSTY_BACK.png");
     changeColor(G4);
   }
 });
 
 G4Sharp.addEventListener("click", function () {
-  playMusic("G4SHARP.mp4", "G4SHARP_FRONT.png", "PUSTY_BACK.png");
+  playMusic("G4SHARP.mp3", "G4SHARP_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "e" || event.key === "E") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("G4SHARP.mp4", "G4SHARP_FRONT.png", "PUSTY_BACK.png");
+    playMusic("G4SHARP.mp3", "G4SHARP_FRONT.png", "PUSTY_BACK.png");
     changeColor(G4Sharp);
   }
 });
 
 A4.addEventListener("click", function () {
-  playMusic("A4.mp4", "A4_FRONT.png", "PUSTY_BACK.png");
+  playMusic("A4.mp3", "A4_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "r" || event.key === "R") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("A4.mp4", "A4_FRONT.png", "PUSTY_BACK.png");
+    playMusic("A4.mp3", "A4_FRONT.png", "PUSTY_BACK.png");
     changeColor(A4);
   }
 });
 
 A4Sharp.addEventListener("click", function () {
-  playMusic("A4SHARP.mp4", "A4SHARP_FRONT.png", "PUSTY_BACK.png");
+  playMusic("A4SHARP.mp3", "A4SHARP_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "f" || event.key === "F") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("A4SHARP.mp4", "A4SHARP_FRONT.png", "PUSTY_BACK.png");
+    playMusic("A4SHARP.mp3", "A4SHARP_FRONT.png", "PUSTY_BACK.png");
     changeColor(A4Sharp);
   }
 });
 
 H4.addEventListener("click", function () {
-  playMusic("H4.mp4", "H4_FRONT.png", "PUSTY_BACK.png");
+  playMusic("H4.mp3", "H4_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "v" || event.key === "V") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("H4.mp4", "H4_FRONT.png", "PUSTY_BACK.png");
+    playMusic("H4.mp3", "H4_FRONT.png", "PUSTY_BACK.png");
     changeColor(H4);
   }
 });
@@ -236,145 +236,145 @@ document.addEventListener("keydown", function (event) {
 // C5-H5
 
 C5.addEventListener("click", function () {
-  playMusic("C5.mp4", "C5_FRONT.png", "PUSTY_BACK.png");
+  playMusic("C5.mp3", "C5_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "b" || event.key === "B") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("C5.mp4", "C5_FRONT.png", "PUSTY_BACK.png");
+    playMusic("C5.mp3", "C5_FRONT.png", "PUSTY_BACK.png");
     changeColor(C5);
   }
 });
 
 C5Sharp.addEventListener("click", function () {
-  playMusic("C5SHARP.mp4", "PUSTY_FRONT.png", "PUSTY_BACK.png");
+  playMusic("C5SHARP.mp3", "PUSTY_FRONT.png", "PUSTY_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "h" || event.key === "H") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("C5SHARP.mp4", "PUSTY_FRONT.png", "PUSTY_BACK.png");
+    playMusic("C5SHARP.mp3", "PUSTY_FRONT.png", "PUSTY_BACK.png");
     changeColor(C5Sharp);
   }
 });
 
 D5.addEventListener("click", function () {
-  playMusic("D5.mp4", "D4_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("D5.mp3", "D4_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "u" || event.key === "U") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("D5.mp4", "D4_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("D5.mp3", "D4_FRONT.png", "OKTAWA_BACK.png");
     changeColor(D5);
   }
 });
 
 D5Sharp.addEventListener("click", function () {
-  playMusic("D5SHARP.mp4", "D4SHARP_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("D5SHARP.mp3", "D4SHARP_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "i" || event.key === "I") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("D5SHARP.mp4", "D4SHARP_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("D5SHARP.mp3", "D4SHARP_FRONT.png", "OKTAWA_BACK.png");
     changeColor(D5Sharp);
   }
 });
 
 E5.addEventListener("click", function () {
-  playMusic("E5.mp4", "E4_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("E5.mp3", "E4_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "j" || event.key === "J") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("E5.mp4", "E4_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("E5.mp3", "E4_FRONT.png", "OKTAWA_BACK.png");
     changeColor(E5);
   }
 });
 
 F5.addEventListener("click", function () {
-  playMusic("F5.mp4", "F4_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("F5.mp3", "F4_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "n" || event.key === "N") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("F5.mp4", "F4_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("F5.mp3", "F4_FRONT.png", "OKTAWA_BACK.png");
     changeColor(F5);
   }
 });
 
 F5Sharp.addEventListener("click", function () {
-  playMusic("F5SHARP.mp4", "F4SHARP_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("F5SHARP.mp3", "F4SHARP_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "m" || event.key === "M") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("F5SHARP.mp4", "F4SHARP_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("F5SHARP.mp3", "F4SHARP_FRONT.png", "OKTAWA_BACK.png");
     changeColor(F5Sharp);
   }
 });
 
 G5.addEventListener("click", function () {
-  playMusic("G5.mp4", "G4_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("G5.mp3", "G4_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "k" || event.key === "K") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("G5.mp4", "G4_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("G5.mp3", "G4_FRONT.png", "OKTAWA_BACK.png");
     changeColor(G5);
   }
 });
 
 G5Sharp.addEventListener("click", function () {
-  playMusic("G5SHARP.mp4", "G4SHARP_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("G5SHARP.mp3", "G4SHARP_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "o" || event.key === "O") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("G5SHARP.mp4", "G4SHARP_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("G5SHARP.mp3", "G4SHARP_FRONT.png", "OKTAWA_BACK.png");
     changeColor(G5Sharp);
   }
 });
 
 A5.addEventListener("click", function () {
-  playMusic("A5.mp4", "A4_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("A5.mp3", "A4_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "p" || event.key === "P") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("A5.mp4", "A4_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("A5.mp3", "A4_FRONT.png", "OKTAWA_BACK.png");
     changeColor(A5);
   }
 });
 
 A5Sharp.addEventListener("click", function () {
-  playMusic("A5SHARP.mp4", "A4SHARP_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("A5SHARP.mp3", "A4SHARP_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "l" || event.key === "L") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("A5SHARP.mp4", "A4SHARP_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("A5SHARP.mp3", "A4SHARP_FRONT.png", "OKTAWA_BACK.png");
     changeColor(A5Sharp);
   }
 });
 
 H5.addEventListener("click", function () {
-  playMusic("H5.mp4", "H4_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("H5.mp3", "H4_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "," || event.key === "<") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("H5.mp4", "H4_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("H5.mp3", "H4_FRONT.png", "OKTAWA_BACK.png");
     changeColor(H5);
   }
 });
@@ -382,73 +382,73 @@ document.addEventListener("keydown", function (event) {
 // C6-F6
 
 C6.addEventListener("click", function () {
-  playMusic("C6.mp4", "C5_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("C6.mp3", "C5_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "." || event.key === ">") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("C6.mp4", "C5_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("C6.mp3", "C5_FRONT.png", "OKTAWA_BACK.png");
     changeColor(C6);
   }
 });
 
 C6Sharp.addEventListener("click", function () {
-  playMusic("C6SHARP.mp4", "PUSTY_FRONT.png", "OKTAWA_BACK.png");
+  playMusic("C6SHARP.mp3", "PUSTY_FRONT.png", "OKTAWA_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === ";" || event.key === ":") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("C6SHARP.mp4", "PUSTY_FRONT.png", "OKTAWA_BACK.png");
+    playMusic("C6SHARP.mp3", "PUSTY_FRONT.png", "OKTAWA_BACK.png");
     changeColor(C6Sharp);
   }
 });
 
 D6.addEventListener("click", function () {
-  playMusic("D6.mp4", "PUSTY_FRONT.png", "D6_BACK.png");
+  playMusic("D6.mp3", "PUSTY_FRONT.png", "D6_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "[" || event.key === "{") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("D6.mp4", "PUSTY_FRONT.png", "D6_BACK.png");
+    playMusic("D6.mp3", "PUSTY_FRONT.png", "D6_BACK.png");
     changeColor(D6);
   }
 });
 
 D6Sharp.addEventListener("click", function () {
-  playMusic("D6SHARP.mp4", "PUSTY_FRONT.png", "D6SHARP_BACK.png");
+  playMusic("D6SHARP.mp3", "PUSTY_FRONT.png", "D6SHARP_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "]" || event.key === "}") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("D6SHARP.mp4", "PUSTY_FRONT.png", "D6SHARP_BACK.png");
+    playMusic("D6SHARP.mp3", "PUSTY_FRONT.png", "D6SHARP_BACK.png");
     changeColor(D6Sharp);
   }
 });
 
 E6.addEventListener("click", function () {
-  playMusic("E6.mp4", "E6_FRONT.png", "E6_BACK.png");
+  playMusic("E6.mp3", "E6_FRONT.png", "E6_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "'" || event.key === "'") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("E6.mp4", "E6_FRONT.png", "E6_BACK.png");
+    playMusic("E6.mp3", "E6_FRONT.png", "E6_BACK.png");
     changeColor(E6);
   }
 });
 
 F6.addEventListener("click", function () {
-  playMusic("F6.mp4", "E6_FRONT.png", "F6_BACK.png");
+  playMusic("F6.mp3", "E6_FRONT.png", "F6_BACK.png");
   changeColor(this);
 });
 document.addEventListener("keydown", function (event) {
   if (event.key === "/" || event.key === "?") {
     // Tutaj umieść kod, który zostanie wykonany po wciśnięciu klawisza "G"
-    playMusic("F6.mp4", "E6_FRONT.png", "F6_BACK.png");
+    playMusic("F6.mp3", "E6_FRONT.png", "F6_BACK.png");
     changeColor(F6);
   }
 });
