@@ -60,7 +60,27 @@ let D6 = document.getElementById("D6");
 let D6Sharp = document.getElementById("D6#");
 let E6 = document.getElementById("E6");
 let F6 = document.getElementById("F6");
+let graj = document.getElementById("graj");
 
+graj.addEventListener("click", function () {
+  playMusic("A3SHARP.mp3", "A3SHARP_FRONT.png", "PUSTY_BACK.png");
+  changeColor(A3Sharp);
+
+  // changeColor(this);
+
+  setTimeout(function () {
+    playMusic("A3SHARP.mp3", "A3SHARP_FRONT.png", "PUSTY_BACK.png");
+    changeColor(A3Sharp);
+  }, 2000);
+});
+
+// setTimeout(function () {
+//   front.src = `images/sax/A3SHARP_FRONT.png`;
+//   back.src = `images/sax/PUSTY_BACK.png`;
+//   audio.pause();
+//   audio.src = `sound/A3SHARP.mp3`;
+//   audio.play();
+// }, 2000);
 // A3-H3
 
 A3Sharp.addEventListener("click", function () {
