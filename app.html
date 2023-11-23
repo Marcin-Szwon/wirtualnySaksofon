@@ -38,8 +38,6 @@
               <img src="images/keyboard.webp" alt="Popup Image" />
             </div>
           </a>
-          <!-- <i class="fas fa-music icon"></i> -->
-          <!-- HTML -->
           <a class="shortcut" href="#">
             <img src="images/music.png" alt="" class="icons-menu" />
             <span>Utwory Muzyczne</span>
@@ -55,25 +53,12 @@
                 </span>
                 <ul>
                   <li>
-                    Utwór 1
+                    Wlazł kotek na płotek
                     <div class="buttons">
-                      <button class="play-button">Posłuchaj</button>
-                      <button class="download-button">Zagraj</button>
-                    </div>
-                  </li>
-
-                  <li>
-                    Utwór 2
-                    <div class="buttons">
-                      <button class="play-button">Posłuchaj</button>
-                      <button class="download-button">Zagraj</button>
-                    </div>
-                  </li>
-                  <li>
-                    Utwór 3
-                    <div class="buttons">
-                      <button class="play-button">Posłuchaj</button>
-                      <button class="download-button">Zagraj</button>
+                      <button onclick="kotekListen()" id="kotekListenButton">
+                        Posłuchaj
+                      </button>
+                      <button id="KotekPlay">Zagraj</button>
                     </div>
                   </li>
                 </ul>
@@ -89,26 +74,12 @@
                 </span>
                 <ul>
                   <li>
-                    Hallelujah - Leonard Cohen
+                    When the Saints Go Marching In
                     <div class="buttons">
-                      <button id="listenButton" onclick="hallelujahListen()">
+                      <button id="saintsListenButton" onclick="saintsListen()">
                         Posłuchaj
                       </button>
-                      <button>Zagraj</button>
-                    </div>
-                  </li>
-                  <li>
-                    Utwór 5
-                    <div class="buttons">
-                      <button class="play-button">Posłuchaj</button>
-                      <button class="download-button">Zagraj</button>
-                    </div>
-                  </li>
-                  <li>
-                    Utwór 6
-                    <div class="buttons">
-                      <button class="play-button">Posłuchaj</button>
-                      <button class="download-button">Zagraj</button>
+                      <button id="saintsPlay">Zagraj</button>
                     </div>
                   </li>
                 </ul>
@@ -124,24 +95,15 @@
                 </span>
                 <ul>
                   <li>
-                    Utwór 7
+                    Hallelujah - Leonard Cohen
                     <div class="buttons">
-                      <button class="play-button">Posłuchaj</button>
-                      <button class="download-button">Zagraj</button>
-                    </div>
-                  </li>
-                  <li>
-                    Utwór 8
-                    <div class="buttons">
-                      <button class="play-button">Posłuchaj</button>
-                      <button class="download-button">Zagraj</button>
-                    </div>
-                  </li>
-                  <li>
-                    Utwór 9
-                    <div class="buttons">
-                      <button class="play-button">Posłuchaj</button>
-                      <button class="download-button">Zagraj</button>
+                      <button
+                        id="hallelujahListenButton"
+                        onclick="hallelujahListen()"
+                      >
+                        Posłuchaj
+                      </button>
+                      <button id="HallelujahPlay">Zagraj</button>
                     </div>
                   </li>
                 </ul>
@@ -196,32 +158,8 @@
         <button id="D6#">D6#</button>
         <button id="E6">E6</button>
         <button id="F6">F6</button>
-        <button id="graj">graj</button>
       </div>
     </div>
-
-    <!-- <button id="C4">C4</button>
-    <button id="C4#">C4#</button>
-    <button id="D4">D4</button>
-    <button id="D4#">D4#</button>
-    <button id="E4">E4</button>
-    <button id="F4">F4</button>
-    <button id="F4#">F4#</button>
-    <button id="G4">G4</button>
-    <button id="G4#">G4#</button>
-    <button id="A4">A4</button>
-    <button id="A4#">A4#</button>
-    <button id="H4">H4</button> -->
-
-    <!-- 
-    <button id="C6">C6</button>
-    <button id="C6#">C6#</button>
-    <button id="D6">D6</button>
-    <button id="D6#">D6#</button>
-    <button id="E6">E6</button>
-    <button id="F6">F6</button>
-    <button id="F6#">F6#</button -->
-
     <script src="app.js" defer></script>
   </body>
 </html>
