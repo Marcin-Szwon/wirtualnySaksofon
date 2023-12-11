@@ -104,6 +104,9 @@ playWlazlKotekButton.addEventListener("click", function () {
   createLetter("Z", 10.092);
   createLetter("S", 10.434);
   createLetter("Z", 10.853);
+  setTimeout(function () {
+    location.reload();
+  }, 12000);
 });
 
 var playHallelujahButton = document.getElementById("HallelujahPlay");
@@ -261,6 +264,9 @@ playSaintsButton.addEventListener("click", function () {
   createLetter("D", 23.513);
   createLetter("R", 24.289);
   createLetter("D", 25.182);
+  setTimeout(function () {
+    location.reload();
+  }, 27000);
 });
 
 counter = 0;
