@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Metadane dotyczące kodowania znaków, zgodności, widoku oraz opisu strony -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +9,7 @@
       name="desciption"
       content="Tworzymy aplikację webową dla użytkowników zainteresowanych symulatorem saksofonu. To tutaj zagrasz swoje ulubione utwory i my Tobie w tym pomożemy."
     />
+    <!-- Arkusz stylów Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -15,39 +17,51 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Linki preconnect dla zewnętrznych zasobów -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts Montserrat -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Ikona skrótu -->
     <link rel="shortcut icon" href="images/logo.webp" />
+    <!-- Arkusz stylów główny -->
     <link rel="stylesheet" href="css/main.css" />
+    <!-- Tytuł strony -->
     <title>Wirtualny Saksofon</title>
   </head>
   <body>
+    <!-- Pasek postępu -->
     <div id="progress">
       <span id="progress-value"
         ><i class="fa-sharp fa-solid fa-arrow-up"></i>
       </span>
     </div>
+    <!-- Sekcja nagłówka -->
     <header>
+      <!-- Pasek nawigacyjny -->
       <div class="navbar">
+        <!-- Logo -->
         <div class="logo">
           <a href="index.html">
             <img src="images/logo.webp" loading="lazy" alt="logo" />
             <h3>Wirtualny Saksofon</h3>
           </a>
         </div>
+        <!-- Linki nawigacyjne -->
         <ul class="links">
           <li><a class="headlights" href="#offer">Co oferujemy?</a></li>
           <li><a href="#play" class="action_btn">Graj</a></li>
           <li><a class="headlights" href="#contact">Kontakt</a></li>
         </ul>
+        <!-- Przycisk przełączający menu dla urządzeń mobilnych -->
         <div class="toggle_btn">
           <i class="fa-solid fa-bars"></i>
         </div>
       </div>
+      <!-- Menu rozwijane dla urządzeń mobilnych -->
       <div class="dropdown_menu">
         <ul>
           <li><a class="headlights" href="#offer">Co oferujemy?</a></li>
@@ -57,7 +71,9 @@
       </div>
     </header>
 
+    <!-- Główna treść -->
     <main>
+      <!-- Sekcja heroiczna -->
       <section id="hero">
         <h1><span>Z pasji do saksofonów</span></h1>
         <p>
@@ -82,6 +98,7 @@
       </section>
     </main>
 
+    <!-- Sekcja oferta -->
     <section id="offer">
       <h2>Czego możesz się nauczyć</h2>
       <p>
@@ -118,9 +135,10 @@
       </div>
     </section>
 
+    <!-- Sekcja graj -->
     <section id="play">
       <h2>Wybierz instrument i graj</h2>
-      <p>Wybierz spośród 3 instrumnetów, na którym chcesz zagrać.</p>
+      <p>Wybierz spośród 3 instrumentów, na którym chcesz zagrać.</p>
 
       <div class="row">
         <div class="play-col">
@@ -164,6 +182,7 @@
       </div>
     </section>
 
+    <!-- Sekcja kontakt -->
     <section id="contact">
       <div class="contact-form">
         <h2>Skontaktuj się z nami</h2>
@@ -194,6 +213,7 @@
       </div>
     </section>
 
+    <!-- Stopka -->
     <footer>
       <div class="footer-content">
         <h3>Wirtualny Saksofon</h3>
@@ -209,7 +229,14 @@
       </div>
     </footer>
 
+    <!-- Skrypt SMTP.js -->
     <script src="https://smtpjs.com/v3/smtp.js" defer></script>
+    <!-- 
+      Skrypt SMTP.js jest biblioteką do wysyłania wiadomości e-mail z wykorzystaniem protokołu SMTP (Simple Mail Transfer Protocol). 
+      Jest asynchroniczny (zastosowanie atrybutu "defer" oznacza, że skrypt będzie pobierany w tle i wykonywany po załadowaniu strony) 
+      i służy do obsługi funkcji wysyłania e-maili poprzez aplikację internetową.
+      Więcej informacji można znaleźć na stronie: https://smtpjs.com/
+    -->
     <script src="script.js" defer></script>
   </body>
 </html>

@@ -1,3 +1,5 @@
+var bitCheck = 0;
+
 function stopMusic() {
   audio.pause();
   audio.currentTime = 0;
@@ -17,30 +19,37 @@ function playMusic(nuta, srcFront, srcBack) {
     // console.log(teraz + 1000); // Dodanie 1000 ms
     console.log(czasPrzeplyniety + 1000); // Dodanie 1000 ms
   }
-
   console.log(nuta);
-  front.src = `images/sax/${srcFront}`;
-  back.src = `images/sax/${srcBack}`;
-  audio.pause();
-  audio.src = `sound/${nuta}`;
-  audio.play();
+
+  front.src = `images/sax/${srcFront}`; // Zamiana frontowego zdjęcia saksofonu na wskazany w argumencie funkcji
+  back.src = `images/sax/${srcBack}`; // Zamiana zdjęcia ukazującego tył saksofonu na wskazany w argumencie funkcji
+  audio.pause(); // zatrzymuje poprzedni dźwięk, jeżeli takowy był
+  audio.src = `sound/${nuta}`; // podmienia źródło dźwięku na te wskazane w argumencie funkcji
+  audio.play(); // odtwarza ten dźwięk
 }
 // Funkcja do tworzenia elementów dla liter
 function createLetter(letter, delay) {
+  // Utwórz nowy element div dla litery
   var newLetter = document.createElement("div");
+
+  // Ustaw tekst litery
   newLetter.textContent = letter;
+
+  // Ustaw pozycję, rozmiar, kolor i indeks warstwy dla litery
   newLetter.style.position = "fixed";
   newLetter.style.bottom = "16vh";
   newLetter.style.right = "-3rem";
   newLetter.style.fontSize = "3rem";
   newLetter.style.color = "#ffffff";
   newLetter.style.zIndex = "10001";
+
+  // Dodaj utworzoną literę do ciała dokumentu
   document.body.appendChild(newLetter);
 
-  // Utwórz animację CSS dla litery
+  // Utwórz animację CSS dla litery z określonym opóźnieniem
   newLetter.style.transition = "right 7s linear " + delay + "s";
 
-  // Po upływie 50ms, przesuń literę na lewo
+  // Po upływie 50ms, przesuń literę na lewo, uruchamiając animację
   setTimeout(function () {
     newLetter.style.right = "100%";
   }, 50);
@@ -73,200 +82,221 @@ function interfaceCreator() {
 }
 var playWlazlKotekButton = document.getElementById("KotekPlay");
 playWlazlKotekButton.addEventListener("click", function () {
-  const playButton = document.getElementById("KotekPlay");
-  playButton.style.backgroundColor = "red";
-  playButton.textContent = "Zatrzymaj";
-  // Obsługa naciśnięcia przycisku "Zatrzymaj"
-  playButton.onclick = function () {
-    if (stopPlaying) {
-      // Jeśli już jest zatrzymane, ponownie uruchom funkcję
+  if (bitCheck == 0) {
+    bitCheck++;
+    const playButton = document.getElementById("KotekPlay");
+    playButton.style.backgroundColor = "red";
+    playButton.textContent = "Zatrzymaj";
+    // Obsługa naciśnięcia przycisku "Zatrzymaj"
+    playButton.onclick = function () {
+      if (stopPlaying) {
+        // Jeśli już jest zatrzymane, ponownie uruchom funkcję
+        bitCheck--;
+        location.reload();
+      } else {
+        bitCheck--;
+        location.reload();
+      }
+    };
+    interfaceCreator();
+    createLetter("D", 1);
+    createLetter("S", 1.544);
+    createLetter("S", 2.117);
+    createLetter("X", 2.688);
+    createLetter("Q", 3.289);
+    createLetter("Q", 3.885);
+    createLetter("Z", 4.479);
+    createLetter("S", 4.873);
+    createLetter("D", 5.278);
+    createLetter("D", 6.577);
+    createLetter("S", 7.142);
+    createLetter("S", 7.728);
+    createLetter("X", 8.288);
+    createLetter("Q", 8.893);
+    createLetter("Q", 9.476);
+    createLetter("Z", 10.092);
+    createLetter("S", 10.434);
+    createLetter("Z", 10.853);
+    setTimeout(function () {
       location.reload();
-    } else {
-      location.reload();
-    }
-  };
-  interfaceCreator();
-  createLetter("D", 1);
-  createLetter("S", 1.544);
-  createLetter("S", 2.117);
-  createLetter("X", 2.688);
-  createLetter("Q", 3.289);
-  createLetter("Q", 3.885);
-  createLetter("Z", 4.479);
-  createLetter("S", 4.873);
-  createLetter("D", 5.278);
-  createLetter("D", 6.577);
-  createLetter("S", 7.142);
-  createLetter("S", 7.728);
-  createLetter("X", 8.288);
-  createLetter("Q", 8.893);
-  createLetter("Q", 9.476);
-  createLetter("Z", 10.092);
-  createLetter("S", 10.434);
-  createLetter("Z", 10.853);
-  setTimeout(function () {
-    location.reload();
-  }, 12000);
+    }, 16000);
+  } else {
+    pass;
+  }
 });
 
 var playHallelujahButton = document.getElementById("HallelujahPlay");
 playHallelujahButton.addEventListener("click", function () {
-  var musicList = document.querySelector(".music-list");
-  // Zmiana wyglądu przycisku "Posłuchaj"
-  const playButton = document.getElementById("HallelujahPlay");
-  playButton.style.backgroundColor = "red";
-  playButton.textContent = "Zatrzymaj";
+  if (bitCheck == 0) {
+    bitCheck++;
+    var musicList = document.querySelector(".music-list");
+    // Zmiana wyglądu przycisku "Posłuchaj"
+    const playButton = document.getElementById("HallelujahPlay");
+    playButton.style.backgroundColor = "red";
+    playButton.textContent = "Zatrzymaj";
 
-  // Obsługa naciśnięcia przycisku "Zatrzymaj"
-  playButton.onclick = function () {
-    if (stopPlaying) {
-      // Jeśli już jest zatrzymane, ponownie uruchom funkcję
+    // Obsługa naciśnięcia przycisku "Zatrzymaj"
+    playButton.onclick = function () {
+      if (stopPlaying) {
+        bitCheck--;
+        // Jeśli już jest zatrzymane, ponownie uruchom funkcję
+        location.reload();
+      } else {
+        bitCheck--;
+        location.reload();
+      }
+    };
+    interfaceCreator();
+    createLetter("C", 1);
+    createLetter("R", 1.449);
+    createLetter("R", 2.201);
+    createLetter("R", 2.605);
+    createLetter("R", 3.353);
+    createLetter("V", 3.752);
+    createLetter("V", 4.432);
+    createLetter("V", 4.885);
+    createLetter("C", 5.713);
+    createLetter("R", 6.158);
+    createLetter("R", 7.003);
+    createLetter("R", 7.443);
+    createLetter("R", 8.279);
+    createLetter("V", 8.703);
+    createLetter("V", 9.546);
+    createLetter("V", 9.991);
+    createLetter("R", 10.902);
+    createLetter("V", 11.367);
+    createLetter("V", 12.207);
+    createLetter("V", 12.627);
+    createLetter("V", 13.473);
+    createLetter("V", 13.937);
+    createLetter("R", 14.639);
+    createLetter("R", 15.622);
+    createLetter("D", 16.086);
+    createLetter("R", 16.545);
+    createLetter("R", 17.316);
+
+    createLetter("C", 19.473);
+    createLetter("R", 19.942);
+    createLetter("R", 20.739);
+    createLetter("R", 21.157);
+    createLetter("R", 22.033);
+    createLetter("V", 22.493);
+    createLetter("V", 23.366);
+    createLetter("H", 23.864);
+    createLetter("R", 24.832);
+    createLetter("U", 25.376);
+    createLetter("U", 26.214);
+
+    createLetter("U", 26.689);
+    createLetter("U", 27.712);
+    createLetter("U", 28.242);
+    createLetter("U", 29.085);
+    createLetter("J", 29.512);
+    createLetter("U", 30.433);
+    createLetter("J", 30.886);
+    createLetter("J", 31.714);
+    createLetter("J", 32.189);
+    createLetter("J", 33.011);
+    createLetter("M", 33.475);
+    createLetter("M", 34.366);
+    createLetter("M", 35.431);
+    createLetter("J", 36.03);
+    createLetter("J", 36.545);
+    createLetter("U", 37.492);
+    createLetter("C", 39.702);
+    createLetter("R", 40.514);
+    createLetter("V", 40.986);
+    createLetter("V", 42.121);
+    createLetter("V", 44.085);
+    createLetter("R", 44.987);
+    createLetter("C", 45.482);
+    createLetter("C", 46.505);
+    createLetter("C", 48.313);
+    createLetter("R", 49.17);
+    createLetter("V", 49.635);
+    createLetter("V", 50.724);
+    createLetter("V", 52.419);
+    createLetter("R", 53.262);
+    createLetter("C", 53.711);
+    createLetter("D", 55.133);
+    createLetter("C", 55.586);
+    createLetter("S", 56.141);
+    createLetter("Q", 57.526);
+    createLetter("Q", 58.005);
+    setTimeout(function () {
       location.reload();
-    } else {
-      location.reload();
-    }
-  };
-  interfaceCreator();
-  createLetter("C", 1);
-  createLetter("R", 1.449);
-  createLetter("R", 2.201);
-  createLetter("R", 2.605);
-  createLetter("R", 3.353);
-  createLetter("V", 3.752);
-  createLetter("V", 4.432);
-  createLetter("V", 4.885);
-  createLetter("C", 5.713);
-  createLetter("R", 6.158);
-  createLetter("R", 7.003);
-  createLetter("R", 7.443);
-  createLetter("R", 8.279);
-  createLetter("V", 8.703);
-  createLetter("V", 9.546);
-  createLetter("V", 9.991);
-  createLetter("R", 10.902);
-  createLetter("V", 11.367);
-  createLetter("V", 12.207);
-  createLetter("V", 12.627);
-  createLetter("V", 13.473);
-  createLetter("V", 13.937);
-  createLetter("R", 14.639);
-  createLetter("R", 15.622);
-  createLetter("D", 16.086);
-  createLetter("R", 16.545);
-  createLetter("R", 17.316);
+    }, 63000);
 
-  createLetter("C", 19.473);
-  createLetter("R", 19.942);
-  createLetter("R", 20.739);
-  createLetter("R", 21.157);
-  createLetter("R", 22.033);
-  createLetter("V", 22.493);
-  createLetter("V", 23.366);
-  createLetter("H", 23.864);
-  createLetter("R", 24.832);
-  createLetter("U", 25.376);
-  createLetter("U", 26.214);
-
-  createLetter("U", 26.689);
-  createLetter("U", 27.712);
-  createLetter("U", 28.242);
-  createLetter("U", 29.085);
-  createLetter("J", 29.512);
-  createLetter("U", 30.433);
-  createLetter("J", 30.886);
-  createLetter("J", 31.714);
-  createLetter("J", 32.189);
-  createLetter("J", 33.011);
-  createLetter("M", 33.475);
-  createLetter("M", 34.366);
-  createLetter("M", 35.431);
-  createLetter("J", 36.03);
-  createLetter("J", 36.545);
-  createLetter("U", 37.492);
-  createLetter("C", 39.702);
-  createLetter("R", 40.514);
-  createLetter("V", 40.986);
-  createLetter("V", 42.121);
-  createLetter("V", 44.085);
-  createLetter("R", 44.987);
-  createLetter("C", 45.482);
-  createLetter("C", 46.505);
-  createLetter("C", 48.313);
-  createLetter("R", 49.17);
-  createLetter("V", 49.635);
-  createLetter("V", 50.724);
-  createLetter("V", 52.419);
-  createLetter("R", 53.262);
-  createLetter("C", 53.711);
-  createLetter("D", 55.133);
-  createLetter("C", 55.586);
-  createLetter("S", 56.141);
-  createLetter("Q", 57.526);
-  createLetter("Q", 58.005);
-  setTimeout(function () {
-    location.reload();
-  }, 63000);
-
-  // Po zakończeniu animacji usuń element z body
-  letter.addEventListener("transitionend", function () {
-    letter.remove();
-  });
+    // Po zakończeniu animacji usuń element z body
+    // letter.addEventListener("transitionend", function () {
+    //   letter.remove();
+    // });
+  } else {
+    pass;
+  }
 });
 
 var playSaintsButton = document.getElementById("saintsPlay");
 playSaintsButton.addEventListener("click", function () {
-  const playButton = document.getElementById("saintsPlay");
-  playButton.style.backgroundColor = "red";
-  playButton.textContent = "Zatrzymaj";
-  // Obsługa naciśnięcia przycisku "Zatrzymaj"
-  playButton.onclick = function () {
-    if (stopPlaying) {
-      // Jeśli już jest zatrzymane, ponownie uruchom funkcję
-      location.reload();
-    } else {
-      location.reload();
-    }
-  };
-  interfaceCreator();
-  createLetter("D", 1.0);
-  createLetter("V", 1.676);
-  createLetter("B", 2.19);
-  createLetter("U", 2.71);
-  createLetter("D", 4.028);
-  createLetter("V", 4.739);
-  createLetter("B", 5.22);
-  createLetter("U", 5.672);
-  createLetter("D", 7.067);
-  createLetter("V", 7.783);
-  createLetter("B", 8.252);
-  createLetter("U", 8.737);
-  createLetter("V", 9.589);
-  createLetter("D", 10.421);
-  createLetter("V", 11.177);
-  createLetter("R", 12.042);
-  createLetter("V", 13.872);
-  createLetter("V", 14.367);
-  createLetter("R", 14.74);
+  if (bitCheck == 0) {
+    bitCheck++;
+    const playButton = document.getElementById("saintsPlay");
+    playButton.style.backgroundColor = "red";
+    playButton.textContent = "Zatrzymaj";
+    // Obsługa naciśnięcia przycisku "Zatrzymaj"
+    playButton.onclick = function () {
+      if (stopPlaying) {
+        bitCheck--;
+        // Jeśli już jest zatrzymane, ponownie uruchom funkcję
+        location.reload();
+      } else {
+        bitCheck--;
+        location.reload();
+      }
+    };
+    interfaceCreator();
+    createLetter("D", 1.0);
+    createLetter("V", 1.676);
+    createLetter("B", 2.19);
+    createLetter("U", 2.71);
+    createLetter("D", 4.028);
+    createLetter("V", 4.739);
+    createLetter("B", 5.22);
+    createLetter("U", 5.672);
+    createLetter("D", 7.067);
+    createLetter("V", 7.783);
+    createLetter("B", 8.252);
+    createLetter("U", 8.737);
+    createLetter("V", 9.589);
+    createLetter("D", 10.421);
+    createLetter("V", 11.177);
+    createLetter("R", 12.042);
+    createLetter("V", 13.872);
+    createLetter("V", 14.367);
+    createLetter("R", 14.74);
 
-  createLetter("D", 15.265);
-  createLetter("D", 16.488);
-  createLetter("V", 16.873);
-  createLetter("U", 17.707);
-  createLetter("U", 18.144);
-  createLetter("U", 18.579);
+    createLetter("D", 15.265);
+    createLetter("D", 16.488);
+    createLetter("V", 16.873);
+    createLetter("U", 17.707);
+    createLetter("U", 18.144);
+    createLetter("U", 18.579);
 
-  createLetter("B", 18.965);
-  createLetter("B", 20.4);
-  createLetter("V", 20.864);
-  createLetter("B", 21.394);
-  createLetter("U", 21.843);
-  createLetter("V", 22.735);
-  createLetter("D", 23.513);
-  createLetter("R", 24.289);
-  createLetter("D", 25.182);
-  setTimeout(function () {
-    location.reload();
-  }, 27000);
+    createLetter("B", 18.965);
+    createLetter("B", 20.4);
+    createLetter("V", 20.864);
+    createLetter("B", 21.394);
+    createLetter("U", 21.843);
+    createLetter("V", 22.735);
+    createLetter("D", 23.513);
+    createLetter("R", 24.289);
+    createLetter("D", 25.182);
+    setTimeout(function () {
+      location.reload();
+    }, 30000);
+  } else {
+    pass;
+  }
 });
 
 counter = 0;
@@ -326,7 +356,7 @@ let stopPlaying = false;
 
 const stopPlayingHallelujah = () => {
   stopPlaying = true;
-
+  bitCheck--;
   // Anulowanie wszystkich zaplanowanych setTimeout
   timeoutIds.forEach((timeoutId) => {
     clearTimeout(timeoutId);
@@ -345,7 +375,7 @@ const stopPlayingHallelujah = () => {
 
 const stopPlayingKotek = () => {
   stopPlaying = true;
-
+  bitCheck--;
   // Anulowanie wszystkich zaplanowanych setTimeout
   timeoutIds.forEach((timeoutId) => {
     clearTimeout(timeoutId);
@@ -362,7 +392,7 @@ const stopPlayingKotek = () => {
 
 const stopPlayingSaints = () => {
   stopPlaying = true;
-
+  bitCheck--;
   // Anulowanie wszystkich zaplanowanych setTimeout
   timeoutIds.forEach((timeoutId) => {
     clearTimeout(timeoutId);
@@ -379,630 +409,647 @@ const stopPlayingSaints = () => {
 
 const kotekListen = () => {
   stopPlaying = false; // Resetowanie zmiennej przed ponownym uruchomieniem
+  if (bitCheck == 0) {
+    bitCheck++;
+    // Funkcja pomocnicza do planowania setTimeout i przechowywania identyfikatora
+    const scheduleTimeout = (callback, delay) => {
+      const timeoutId = setTimeout(() => {
+        if (!stopPlaying) {
+          callback();
+        }
+      }, delay);
+      timeoutIds.push(timeoutId);
+    };
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 1000);
+    scheduleTimeout(() => {
+      playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(E4);
+    }, 1544);
+    scheduleTimeout(() => {
+      playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(E4);
+    }, 2117);
+    scheduleTimeout(() => {
+      playMusic("F4.mp3", "F4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(F4);
+    }, 2688);
+    scheduleTimeout(() => {
+      playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(D4);
+    }, 3289);
+    scheduleTimeout(() => {
+      playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(D4);
+    }, 3885);
+    scheduleTimeout(() => {
+      playMusic("C4.mp3", "C4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(C4);
+    }, 4479);
+    scheduleTimeout(() => {
+      playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(E4);
+    }, 4873);
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 5278);
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 6577);
+    scheduleTimeout(() => {
+      playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(E4);
+    }, 7142);
+    scheduleTimeout(() => {
+      playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(E4);
+    }, 7728);
+    scheduleTimeout(() => {
+      playMusic("F4.mp3", "F4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(F4);
+    }, 8288);
+    scheduleTimeout(() => {
+      playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(D4);
+    }, 8893);
+    scheduleTimeout(() => {
+      playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(D4);
+    }, 9476);
+    scheduleTimeout(() => {
+      playMusic("C4.mp3", "C4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(C4);
+    }, 10092);
+    scheduleTimeout(() => {
+      playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(E4);
+    }, 10434);
+    scheduleTimeout(() => {
+      playMusic("C4.mp3", "C4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(C4);
+    }, 10853);
 
-  // Funkcja pomocnicza do planowania setTimeout i przechowywania identyfikatora
-  const scheduleTimeout = (callback, delay) => {
-    const timeoutId = setTimeout(() => {
-      if (!stopPlaying) {
-        callback();
+    const kotekListenButton = document.getElementById("kotekListenButton");
+    kotekListenButton.style.backgroundColor = "red";
+    kotekListenButton.textContent = "Zatrzymaj";
+
+    // Obsługa naciśnięcia przycisku "Zatrzymaj"
+    kotekListenButton.onclick = function () {
+      if (stopPlaying) {
+        // Jeśli już jest zatrzymane, ponownie uruchom funkcję
+        kotekListen();
+      } else {
+        // Jeśli jest w trakcie odtwarzania, zatrzymaj
+        stopPlayingKotek();
       }
-    }, delay);
-    timeoutIds.push(timeoutId);
-  };
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 1000);
-  scheduleTimeout(() => {
-    playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(E4);
-  }, 1544);
-  scheduleTimeout(() => {
-    playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(E4);
-  }, 2117);
-  scheduleTimeout(() => {
-    playMusic("F4.mp3", "F4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(F4);
-  }, 2688);
-  scheduleTimeout(() => {
-    playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(D4);
-  }, 3289);
-  scheduleTimeout(() => {
-    playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(D4);
-  }, 3885);
-  scheduleTimeout(() => {
-    playMusic("C4.mp3", "C4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(C4);
-  }, 4479);
-  scheduleTimeout(() => {
-    playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(E4);
-  }, 4873);
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 5278);
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 6577);
-  scheduleTimeout(() => {
-    playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(E4);
-  }, 7142);
-  scheduleTimeout(() => {
-    playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(E4);
-  }, 7728);
-  scheduleTimeout(() => {
-    playMusic("F4.mp3", "F4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(F4);
-  }, 8288);
-  scheduleTimeout(() => {
-    playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(D4);
-  }, 8893);
-  scheduleTimeout(() => {
-    playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(D4);
-  }, 9476);
-  scheduleTimeout(() => {
-    playMusic("C4.mp3", "C4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(C4);
-  }, 10092);
-  scheduleTimeout(() => {
-    playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(E4);
-  }, 10434);
-  scheduleTimeout(() => {
-    playMusic("C4.mp3", "C4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(C4);
-  }, 10853);
+    };
 
-  const kotekListenButton = document.getElementById("kotekListenButton");
-  kotekListenButton.style.backgroundColor = "red";
-  kotekListenButton.textContent = "Zatrzymaj";
-
-  // Obsługa naciśnięcia przycisku "Zatrzymaj"
-  kotekListenButton.onclick = function () {
-    if (stopPlaying) {
-      // Jeśli już jest zatrzymane, ponownie uruchom funkcję
-      kotekListen();
-    } else {
-      // Jeśli jest w trakcie odtwarzania, zatrzymaj
-      stopPlayingKotek();
-    }
-  };
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      stopPlayingKotek();
-    }
-  });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        stopPlayingKotek();
+      }
+    });
+  } else {
+    pass;
+  }
 };
 
 const saintsListen = () => {
   stopPlaying = false; // Resetowanie zmiennej przed ponownym uruchomieniem
+  if (bitCheck == 0) {
+    bitCheck++;
+    // Funkcja pomocnicza do planowania setTimeout i przechowywania identyfikatora
+    const scheduleTimeout = (callback, delay) => {
+      const timeoutId = setTimeout(() => {
+        if (!stopPlaying) {
+          callback();
+        }
+      }, delay);
+      timeoutIds.push(timeoutId);
+    };
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 1000);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 1676);
+    scheduleTimeout(() => {
+      playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(C5);
+    }, 2190);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 2710);
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 4028);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 4739);
+    scheduleTimeout(() => {
+      playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(C5);
+    }, 5220);
 
-  // Funkcja pomocnicza do planowania setTimeout i przechowywania identyfikatora
-  const scheduleTimeout = (callback, delay) => {
-    const timeoutId = setTimeout(() => {
-      if (!stopPlaying) {
-        callback();
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 5672);
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 7067);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 7783);
+    scheduleTimeout(() => {
+      playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(C5);
+    }, 8252);
+
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 8737);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 9589);
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 10421);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 11177);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 12042);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 13872);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 14367);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 14740);
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 15265);
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 16488);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 16873);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 17707);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 18144);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 18579);
+    scheduleTimeout(() => {
+      playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(C5);
+    }, 18965);
+    scheduleTimeout(() => {
+      playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(C5);
+    }, 20400);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 20864);
+    scheduleTimeout(() => {
+      playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(C5);
+    }, 21394);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 21843);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 22735);
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 23513);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 24289);
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 25182);
+
+    // Eksportuj funkcję
+    // module.exports = {
+    //   scheduleTimeout,
+    //   // inne funkcje, które chcesz eksportować
+    // };
+    const saintsListenButton = document.getElementById("saintsListenButton");
+    saintsListenButton.style.backgroundColor = "red";
+    saintsListenButton.textContent = "Zatrzymaj";
+
+    // Obsługa naciśnięcia przycisku "Zatrzymaj"
+    saintsListenButton.onclick = function () {
+      if (stopPlaying) {
+        // Jeśli już jest zatrzymane, ponownie uruchom funkcję
+        saintsListen();
+      } else {
+        // Jeśli jest w trakcie odtwarzania, zatrzymaj
+        stopPlayingSaints();
       }
-    }, delay);
-    timeoutIds.push(timeoutId);
-  };
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 1000);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 1676);
-  scheduleTimeout(() => {
-    playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(C5);
-  }, 2190);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 2710);
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 4028);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 4739);
-  scheduleTimeout(() => {
-    playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(C5);
-  }, 5220);
+    };
 
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 5672);
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 7067);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 7783);
-  scheduleTimeout(() => {
-    playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(C5);
-  }, 8252);
-
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 8737);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 9589);
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 10421);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 11177);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 12042);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 13872);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 14367);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 14740);
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 15265);
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 16488);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 16873);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 17707);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 18144);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 18579);
-  scheduleTimeout(() => {
-    playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(C5);
-  }, 18965);
-  scheduleTimeout(() => {
-    playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(C5);
-  }, 20400);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 20864);
-  scheduleTimeout(() => {
-    playMusic("C5.mp3", "C5_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(C5);
-  }, 21394);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 21843);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 22735);
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 23513);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 24289);
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 25182);
-
-  const saintsListenButton = document.getElementById("saintsListenButton");
-  saintsListenButton.style.backgroundColor = "red";
-  saintsListenButton.textContent = "Zatrzymaj";
-
-  // Obsługa naciśnięcia przycisku "Zatrzymaj"
-  saintsListenButton.onclick = function () {
-    if (stopPlaying) {
-      // Jeśli już jest zatrzymane, ponownie uruchom funkcję
-      saintsListen();
-    } else {
-      // Jeśli jest w trakcie odtwarzania, zatrzymaj
-      stopPlayingSaints();
-    }
-  };
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      stopPlayingSaints();
-    }
-  });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        stopPlayingSaints();
+      }
+    });
+  } else {
+    pass;
+  }
 };
 
 const hallelujahListen = () => {
   stopPlaying = false; // Resetowanie zmiennej przed ponownym uruchomieniem
+  if (bitCheck == 0) {
+    bitCheck++;
+    // Funkcja pomocnicza do planowania setTimeout i przechowywania identyfikatora
+    const scheduleTimeout = (callback, delay) => {
+      const timeoutId = setTimeout(() => {
+        if (!stopPlaying) {
+          callback();
+        }
+      }, delay);
+      timeoutIds.push(timeoutId);
+    };
 
-  // Funkcja pomocnicza do planowania setTimeout i przechowywania identyfikatora
-  const scheduleTimeout = (callback, delay) => {
-    const timeoutId = setTimeout(() => {
-      if (!stopPlaying) {
-        callback();
+    scheduleTimeout(() => {
+      playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(F4Sharp);
+    }, 1000);
+
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 1449);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 2201);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 2605);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 3353);
+
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 3752);
+
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 4432);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 4885);
+
+    scheduleTimeout(() => {
+      playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(F4Sharp);
+    }, 5713);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 6158);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 7003);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 7443);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 8279);
+
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 8703);
+
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 9546);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 9991);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 10902);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 11367);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 12207);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 12627);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 13473);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 13937);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 14639);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 15622);
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 16086);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 16545);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 17316);
+
+    scheduleTimeout(() => {
+      playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(F4Sharp);
+    }, 19473);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 19942);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 20739);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 21157);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 22033);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 22493);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 23366);
+    scheduleTimeout(() => {
+      playMusic("C5SHARP.mp3", "PUSTY_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(C5Sharp);
+    }, 23864);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 24832);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 25376);
+
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 26214);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 26689);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 27712);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 28242);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 29085);
+    scheduleTimeout(() => {
+      playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(E5);
+    }, 29512);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 30433);
+    scheduleTimeout(() => {
+      playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(E5);
+    }, 30886);
+    scheduleTimeout(() => {
+      playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(E5);
+    }, 31714);
+    scheduleTimeout(() => {
+      playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(E5);
+    }, 32189);
+    scheduleTimeout(() => {
+      playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(E5);
+    }, 33011);
+    scheduleTimeout(() => {
+      playMusic("F5SHARP.mp3", "F4SHARP_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(F5Sharp);
+    }, 33475);
+    scheduleTimeout(() => {
+      playMusic("F5SHARP.mp3", "F4SHARP_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(F5Sharp);
+    }, 34366);
+    scheduleTimeout(() => {
+      playMusic("F5SHARP.mp3", "F4SHARP_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(F5Sharp);
+    }, 35431);
+    scheduleTimeout(() => {
+      playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(E5);
+    }, 36030);
+    scheduleTimeout(() => {
+      playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(E5);
+    }, 36545);
+    scheduleTimeout(() => {
+      playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
+      changeColor(D5);
+    }, 37492);
+    scheduleTimeout(() => {
+      playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(F4Sharp);
+    }, 39702);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 40514);
+
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 40986);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 42121);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 44085);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 44987);
+    scheduleTimeout(() => {
+      playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(F4Sharp);
+    }, 45482);
+    scheduleTimeout(() => {
+      playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(F4Sharp);
+    }, 46505);
+    scheduleTimeout(() => {
+      playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(F4Sharp);
+    }, 48313);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 49170);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 49635);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 50724);
+    scheduleTimeout(() => {
+      playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(H4);
+    }, 52419);
+    scheduleTimeout(() => {
+      playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(A4);
+    }, 53262);
+    scheduleTimeout(() => {
+      playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(F4Sharp);
+    }, 53711);
+    scheduleTimeout(() => {
+      playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(G4);
+    }, 55133);
+    scheduleTimeout(() => {
+      playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(F4Sharp);
+    }, 55586);
+    scheduleTimeout(() => {
+      playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(E4);
+    }, 56141);
+    scheduleTimeout(() => {
+      playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(D4);
+    }, 57526);
+    scheduleTimeout(() => {
+      playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
+      changeColor(D4);
+    }, 58005);
+
+    scheduleTimeout(() => {
+      stopPlayingFunction();
+    }, 61000);
+
+    // Zmiana wyglądu przycisku "Posłuchaj"
+    const hallelujahlistenButton = document.getElementById(
+      "hallelujahListenButton"
+    );
+    hallelujahlistenButton.style.backgroundColor = "red";
+    hallelujahlistenButton.textContent = "Zatrzymaj";
+
+    // Obsługa naciśnięcia przycisku "Zatrzymaj"
+    hallelujahlistenButton.onclick = function () {
+      if (stopPlaying) {
+        // Jeśli już jest zatrzymane, ponownie uruchom funkcję
+        hallelujahListen();
+      } else {
+        // Jeśli jest w trakcie odtwarzania, zatrzymaj
+        stopPlayingHallelujah();
       }
-    }, delay);
-    timeoutIds.push(timeoutId);
-  };
+    };
 
-  scheduleTimeout(() => {
-    playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(F4Sharp);
-  }, 1000);
-
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 1449);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 2201);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 2605);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 3353);
-
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 3752);
-
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 4432);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 4885);
-
-  scheduleTimeout(() => {
-    playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(F4Sharp);
-  }, 5713);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 6158);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 7003);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 7443);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 8279);
-
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 8703);
-
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 9546);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 9991);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 10902);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 11367);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 12207);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 12627);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 13473);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 13937);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 14639);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 15622);
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 16086);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 16545);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 17316);
-
-  scheduleTimeout(() => {
-    playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(F4Sharp);
-  }, 19473);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 19942);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 20739);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 21157);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 22033);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 22493);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 23366);
-  scheduleTimeout(() => {
-    playMusic("C5SHARP.mp3", "PUSTY_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(C5Sharp);
-  }, 23864);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 24832);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 25376);
-
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 26214);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 26689);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 27712);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 28242);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 29085);
-  scheduleTimeout(() => {
-    playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(E5);
-  }, 29512);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 30433);
-  scheduleTimeout(() => {
-    playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(E5);
-  }, 30886);
-  scheduleTimeout(() => {
-    playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(E5);
-  }, 31714);
-  scheduleTimeout(() => {
-    playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(E5);
-  }, 32189);
-  scheduleTimeout(() => {
-    playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(E5);
-  }, 33011);
-  scheduleTimeout(() => {
-    playMusic("F5SHARP.mp3", "F4SHARP_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(F5Sharp);
-  }, 33475);
-  scheduleTimeout(() => {
-    playMusic("F5SHARP.mp3", "F4SHARP_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(F5Sharp);
-  }, 34366);
-  scheduleTimeout(() => {
-    playMusic("F5SHARP.mp3", "F4SHARP_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(F5Sharp);
-  }, 35431);
-  scheduleTimeout(() => {
-    playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(E5);
-  }, 36030);
-  scheduleTimeout(() => {
-    playMusic("E5.mp3", "E4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(E5);
-  }, 36545);
-  scheduleTimeout(() => {
-    playMusic("D5.mp3", "D4_FRONT.webp", "OKTAWA_BACK.webp");
-    changeColor(D5);
-  }, 37492);
-  scheduleTimeout(() => {
-    playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(F4Sharp);
-  }, 39702);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 40514);
-
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 40986);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 42121);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 44085);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 44987);
-  scheduleTimeout(() => {
-    playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(F4Sharp);
-  }, 45482);
-  scheduleTimeout(() => {
-    playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(F4Sharp);
-  }, 46505);
-  scheduleTimeout(() => {
-    playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(F4Sharp);
-  }, 48313);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 49170);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 49635);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 50724);
-  scheduleTimeout(() => {
-    playMusic("H4.mp3", "H4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(H4);
-  }, 52419);
-  scheduleTimeout(() => {
-    playMusic("A4.mp3", "A4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(A4);
-  }, 53262);
-  scheduleTimeout(() => {
-    playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(F4Sharp);
-  }, 53711);
-  scheduleTimeout(() => {
-    playMusic("G4.mp3", "G4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(G4);
-  }, 55133);
-  scheduleTimeout(() => {
-    playMusic("F4SHARP.mp3", "F4SHARP_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(F4Sharp);
-  }, 55586);
-  scheduleTimeout(() => {
-    playMusic("E4.mp3", "E4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(E4);
-  }, 56141);
-  scheduleTimeout(() => {
-    playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(D4);
-  }, 57526);
-  scheduleTimeout(() => {
-    playMusic("D4.mp3", "D4_FRONT.webp", "PUSTY_BACK.webp");
-    changeColor(D4);
-  }, 58005);
-
-  scheduleTimeout(() => {
-    stopPlayingFunction();
-  }, 61000);
-
-  // Zmiana wyglądu przycisku "Posłuchaj"
-  const hallelujahlistenButton = document.getElementById(
-    "hallelujahListenButton"
-  );
-  hallelujahlistenButton.style.backgroundColor = "red";
-  hallelujahlistenButton.textContent = "Zatrzymaj";
-
-  // Obsługa naciśnięcia przycisku "Zatrzymaj"
-  hallelujahlistenButton.onclick = function () {
-    if (stopPlaying) {
-      // Jeśli już jest zatrzymane, ponownie uruchom funkcję
-      hallelujahListen();
-    } else {
-      // Jeśli jest w trakcie odtwarzania, zatrzymaj
-      stopPlayingHallelujah();
-    }
-  };
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      stopPlayingHallelujah();
-    }
-  });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        stopPlayingHallelujah();
+      }
+    });
+  } else {
+    pass;
+  }
 };
 
 // A3-H3

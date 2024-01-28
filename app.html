@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tagi -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ikony font-awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -15,22 +17,27 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
+    <!-- Tytuł strony, ikona favicon i arkusz stylów CSS -->
     <title>Wirtualny Saksofon - Aplikacja</title>
     <link rel="shortcut icon" href="images/logo.webp" />
-
     <link rel="stylesheet" href="css/app.css" />
   </head>
+
   <body>
+    <!-- Nagłówek strony z nawigacją -->
     <header>
       <div class="navbar">
+        <!-- Logo -->
         <div class="logo">
           <a href="index.html#play">
             <img src="images/logo.webp" loading="lazy" alt="logo" />
             <h3>Wirtualny Saksofon</h3>
           </a>
         </div>
+
+        <!-- Elementy nawigacyjne -->
         <div class="item-container">
+          <!-- Skrót do klawiszowych skrótów -->
           <a class="shortcut" href="#">
             <img src="images/typing.png" alt="" class="icons-menu" />
             <span>Skróty Klawiszowe</span>
@@ -38,10 +45,15 @@
               <img src="images/keyboard.webp" alt="Popup Image" />
             </div>
           </a>
+
+          <!-- Skrót do utworów muzycznych -->
           <a class="shortcut" href="#">
             <img src="images/music.png" alt="" class="icons-menu" />
             <span>Utwory Muzyczne</span>
+
+            <!-- Lista utworów z różnym poziomem trudności -->
             <div class="music-list">
+              <!-- Poziom: Początkujący -->
               <div class="difficulty">
                 <span class="difficulty-info">
                   Początkujący
@@ -52,6 +64,7 @@
                   </div>
                 </span>
                 <ul>
+                  <!-- Utwór: Wlazł kotek na płotek -->
                   <li>
                     Wlazł kotek na płotek
                     <div class="buttons">
@@ -63,6 +76,8 @@
                   </li>
                 </ul>
               </div>
+
+              <!-- Poziom: Średniozaawansowany -->
               <div class="difficulty">
                 <span class="difficulty-info">
                   Średniozaawansowany
@@ -73,6 +88,7 @@
                   </div>
                 </span>
                 <ul>
+                  <!-- Utwór: When the Saints Go Marching In -->
                   <li>
                     When the Saints Go Marching In
                     <div class="buttons">
@@ -84,6 +100,8 @@
                   </li>
                 </ul>
               </div>
+
+              <!-- Poziom: Zaawansowany -->
               <div class="difficulty">
                 <span class="difficulty-info">
                   Zaawansowany
@@ -94,6 +112,7 @@
                   </div>
                 </span>
                 <ul>
+                  <!-- Utwór: Hallelujah - Leonard Cohen -->
                   <li>
                     Hallelujah - Leonard Cohen
                     <div class="buttons">
@@ -113,12 +132,18 @@
         </div>
       </div>
     </header>
+
+    <!-- Obszar centralny z przyciskami i obrazkami -->
     <div class="centerImages">
+      <!-- Kolumna z przyciskami dźwiękowymi -->
       <div class="columnButton">
         <button id="A3#">A3#</button>
         <button id="H3">H3</button>
       </div>
+
+      <!-- Kolumna z przyciskami dźwiękowymi -->
       <div class="columnButton">
+        <!-- ... (przyciski C4 do H4) ... -->
         <button id="C4">C4</button>
         <button id="C4#">C4#</button>
         <button id="D4">D4</button>
@@ -132,12 +157,16 @@
         <button id="A4#">A4#</button>
         <button id="H4">H4</button>
       </div>
+
+      <!-- Obrazki saksofonu -->
       <div class="saxImages">
         <img src="images/sax/PUSTY_FRONT.webp" id="frontSax" />
         <img src="images/sax/PUSTY_BACK.webp" id="backSax" alt="" srcset="" />
       </div>
 
+      <!-- Kolumna z przyciskami dźwiękowymi -->
       <div class="columnButton">
+        <!-- ... (przyciski C5 do H5) ... -->
         <button id="C5">C5</button>
         <button id="C5#">C5#</button>
         <button id="D5">D5</button>
@@ -151,7 +180,10 @@
         <button id="A5#">A5#</button>
         <button id="H5">H5</button>
       </div>
+
+      <!-- Kolumna z przyciskami dźwiękowymi -->
       <div class="columnButton">
+        <!-- ... (przyciski C6 do F6) ... -->
         <button id="C6">C6</button>
         <button id="C6#">C6#</button>
         <button id="D6">D6</button>
@@ -160,6 +192,19 @@
         <button id="F6">F6</button>
       </div>
     </div>
+
+    <!-- Skrypt JavaScript -->
     <script src="app.js" defer></script>
+
+    <!--
+    Skrypt JavaScript jest podłączony do dokumentu za pomocą znacznika <script>.
+    Atrybut "src" określa ścieżkę do pliku JavaScript, który ma zostać załadowany.
+    W tym przypadku plik nazywa się "app.js" i jest umieszczony w tym samym katalogu, co plik HTML.
+
+    Atrybut "defer" włączony oznacza, że skrypt zostanie odłożony w czasie i wykonany dopiero po całkowitym załadowaniu strony.
+    Jest to szczególnie przydatne, gdy skrypty powinny być wykonane po załadowaniu całego dokumentu HTML, co pomaga w uniknięciu potencjalnych problemów związanych z kolejnością ładowania.
+
+    Wprowadzenie skryptu JavaScript może zawierać kod, który obsługuje interakcję użytkownika, dynamicznie modyfikuje zawartość strony lub wykonuje różne operacje logiczne.
+-->
   </body>
 </html>
